@@ -1,0 +1,30 @@
+/* https://fonts.google.com/selection?selection.family=Cousine:400,700|Roboto+Mono:100,300,400,500,700|Space+Mono:400,700&query=Hack */
+
+@import url('https://fonts.googleapis.com/css?family=Cousine:400,700|Roboto+Mono:400,500&display=swap');
+
+* {
+    margin: 5px;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+    font-weight: 400;  /* regular */
+    color: #fff;
+    background-color: #000;
+}
+
+.paramName {
+    color: #ffff00;
+    font-weight: 500;
+}
+
+.blinkAnimation {
+    animation: blinker 2s linear infinite;
+}
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
