@@ -22,7 +22,7 @@ Here comes DevBoard to the rescue!
 With DevBoard you can keep track of exactly what you want and see exactly only that! BOOM! Elevator pitch nailed it!
 
 
-![View](https://github.com/MKGitHub/DevBoard/Images/view.jpg)
+![View](https://github.com/MKGitHub/DevBoard/blob/master/Images/view.jpg)
 
 
 How It Works
