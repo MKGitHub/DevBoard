@@ -18,6 +18,7 @@ struct DevBoardParameter:Codable
 }
 
 
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 final class DevBoard:Codable
 {
     // MARK: Public Properties
@@ -189,6 +190,7 @@ final class DevBoard:Codable
 // MARK: - Publisher
 
 
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 extension DevBoard:Publisher
 {
     typealias Output = DevBoard
