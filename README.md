@@ -15,7 +15,7 @@
 
 DevBoard
 ------
-The console is great for logging and keeping track of whats going on in your app, weather you do logging in Xcode in the Terminal.app or the Console.app. But all that logging is sometimes and often just too much 🤯🤦‍♂️, and you easily loose important information.
+The console is great for logging and keeping track of whats going on in your app, whether you do logging in Xcode in the Terminal.app or the Console.app. But all that logging is sometimes and often just too much 🤯🤦‍♂️, and you easily loose important information.
 
 Here comes DevBoard to the rescue!
 
