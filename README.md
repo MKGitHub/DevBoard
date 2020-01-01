@@ -82,7 +82,7 @@ DevBoard has a plain & simple distibution, simply add the `DevBoard.swift` to yo
 
 * Git: `git clone https://github.com/MKGitHub/DevBoard.git`.
 * Carthage: In your Cartfile add `github "MKGitHub/DevBoard"`.
-* Swift Package Manager: Needs swift-tools-version:4.2.
+* Swift Package Manager: Needs swift-tools-version:5.1.
 
 
 Roadmap
