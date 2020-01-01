@@ -24,12 +24,12 @@ With DevBoard you can keep track of exactly what you want and see exactly only t
 
 How It Works
 ------
-######Short Story
+###### Short Story
 * You run the built-in macOS PHP server.
 * You send parameters from your app to a page on the server, which then saves those parameters to a JSON file.
 * That JSON file with those parameters are displayed in another web page.
 
-######Long Story
+###### Long Story
 In the `www` folder double click `Run_DevBoard_Server.command` to run it, this will start the built-in macOS PHP server on `localhost:8888` and use the root directory of the command file.
 
 Then the two web pages in the `www` folder will be opened `DevBoardReceiver.php` and `DevBoardViewer.php`.
@@ -42,7 +42,7 @@ You can now start using DevBoard in your app.
 
 Please see the provided `DevBoardExampleApp` for Swift.
 
-######Swift Story
+###### Swift Story
 ```swift
 // init
 let devBoard = DevBoard(host:"http://localhost:8888", autoUpdateTimeInterval:2)
@@ -64,7 +64,7 @@ var devBoardSubscriber = devBoard.sink
 
 ```
 
-######Setting a Parameter
+###### Setting a Parameter
 * Index: At which index the key/value should be positioned i.e. sort order.
 * Actions: 1 = Apply blinking animation to key-value.
 
