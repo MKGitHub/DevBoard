@@ -90,6 +90,10 @@ DevBoard has a plain & simple distibution, simply add the `DevBoard.swift` to yo
 
 Roadmap
 ------
+* Add a lot of ready made parameters.
+* * Memory (use, free, warning), Energy, Disk, Battery
+* * Network/Internet info.
+* * What else?
 * Add more support for theming in the viewer page.
 * Add more CSS themes.
 * Add support for playing sound actions.
@@ -99,6 +103,7 @@ Roadmap
 * Add support for sending/displaying images.
 * Add support for displaying the navigation stack of an app with screenhots of each view controller (horizontal).
 * Add support for displaying the view hierarchy of an app with screenhots (vertical, z-index).
+* What else?
 
 
 Pull Requests
