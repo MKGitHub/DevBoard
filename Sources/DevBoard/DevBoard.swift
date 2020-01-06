@@ -9,6 +9,9 @@ import Foundation
 import Combine
 
 
+/**
+    The type that is encoded and sent to the server.
+*/
 struct DevBoardParameter:Codable
 {
     var key:String
@@ -19,10 +22,8 @@ struct DevBoardParameter:Codable
 
 
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
-final class DevBoard:Codable
+final class DevBoard
 {
-    // MARK: Public Properties
-
     // MARK: Private/Public Properties
 
     private(set) var ppAutoUpdatePublisher = PassthroughSubject<DevBoard, Never>()
@@ -41,34 +42,13 @@ final class DevBoard:Codable
                                                target:nil)
     private var mParameters = [String:DevBoardParameter]()
 
-    // MARK: Codable
-
-    enum CodingKeys:String, CodingKey
-    {
-        case mParameters = "parameters"
-    }
-
-    func encode(to encoder:Encoder) throws
-    {
-        var container = encoder.container(keyedBy:CodingKeys.self)
-
-        mDispatchQueue.sync(flags:.barrier)
-        {
-            guard ((try? container.encode(self.mParameters, forKey:.mParameters)) != nil) else
-            {
-                Swift.print("[📺 DevBoard] Encoder failed!")
-                return
-            }
-        }
-    }
-
 
     // MARK: - Life Cycle
 
 
     /**
         - Parameters:
-            - host: Host server URL e.g. http://localhost:8888.
+            - host: Host server URL e.g. http://localhost:8888. Also add a "localhost" key to your `NSAppTransportSecurity` key in your Info.plist.
             - autoUpdateTimeInterval: 0 = no auto update, else in seconds to automatically send an update. This requires that you subscribe to this instance of `DevBoard`.
     */
     init(host:String, autoUpdateTimeInterval:Int)
@@ -167,8 +147,6 @@ final class DevBoard:Codable
 
         let url = mHost + "/DevBoardReceiver.php?devBoard=" + escapedString
 
-        //print(url)
-
         // send to the server receiver page
         mDataTaskPublisherCancellable = URLSession.shared.dataTaskPublisher(for:URL(string:url)!)
             .retry(3)
@@ -187,9 +165,42 @@ final class DevBoard:Codable
 }
 
 
+// MARK: - Codable
+
+
+/**
+    Add `Codable` support.
+*/
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
+extension DevBoard:Codable
+{
+    enum CodingKeys:String, CodingKey
+    {
+        case mParameters = "parameters"
+    }
+
+    func encode(to encoder:Encoder) throws
+    {
+        var container = encoder.container(keyedBy:CodingKeys.self)
+
+        mDispatchQueue.sync(flags:.barrier)
+        {
+            guard ((try? container.encode(self.mParameters, forKey:.mParameters)) != nil) else
+            {
+                Swift.print("[📺 DevBoard] Encoder failed!")
+                return
+            }
+        }
+    }
+}
+
+
 // MARK: - Publisher
 
 
+/**
+    Make it a publisher.
+*/
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 extension DevBoard:Publisher
 {
