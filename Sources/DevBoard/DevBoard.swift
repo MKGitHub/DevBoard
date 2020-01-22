@@ -174,10 +174,16 @@ final class DevBoard
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 extension DevBoard:Codable
 {
-    enum CodingKeys:String, CodingKey
+    // MARK: - Private Enum
+
+    private enum CodingKeys:String, CodingKey
     {
         case mParameters = "parameters"
     }
+
+
+    // MARK: - Life Cycle
+
 
     func encode(to encoder:Encoder) throws
     {
@@ -204,8 +210,14 @@ extension DevBoard:Codable
 @available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 extension DevBoard:Publisher
 {
+    // MARK: - Type Alias
+
     typealias Output = DevBoard
     typealias Failure = Never
+
+
+    // MARK: - Life Cycle
+
 
     func receive<S>(subscriber:S) where S:Subscriber,
         DevBoard.Output == S.Input,
