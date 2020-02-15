@@ -1,9 +1,9 @@
 [![MadeInSweden](https://img.shields.io/badge/Made_In-Stockholm_Sweden-blue.svg)](https://en.wikipedia.org/wiki/Stockholm)
 [![Status](https://img.shields.io/badge/Status-Active_and_in_development-blue.svg)](https://github.com/MKGitHub/DevBoard)
 
-[![Version](https://img.shields.io/badge/Version-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
-[![Carthage](https://img.shields.io/badge/Carthage-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
-[![SPM](https://img.shields.io/badge/SPM-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![Version](https://img.shields.io/badge/Version-1.1.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![Carthage](https://img.shields.io/badge/Carthage-1.1.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![SPM](https://img.shields.io/badge/SPM-1.1.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
 [![CocoaPods](https://img.shields.io/badge/CocoaPods-🤬-blue.svg)](https://github.com/MKGitHub/DevBoard)
 
 [![Languages](https://img.shields.io/badge/Languages-Swift_PHP_HTML_JS_CSS-blue.svg)](https://github.com/MKGitHub/DevBoard)

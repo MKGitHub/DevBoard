@@ -1,6 +1,6 @@
 <?php
     /*
-        Dev Board 1.0.1
+        Dev Board 1.1.0
         Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 
         • This is the receiver page.

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 #
-# DevBoard 1.0.1 (PHP Server)
+# DevBoard 1.1.0 (PHP Server)
 # Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 #
 # Just double-click open in the Finder.
