@@ -2,8 +2,8 @@
 set -euo pipefail
 
 #
-# DevBoard 1.0.0 (PHP Server)
-# Copyright © 2019 Mohsan Khan. All rights reserved.
+# DevBoard 1.0.1 (PHP Server)
+# Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 #
 # Just double-click open in the Finder.
 # The root folder will be where you run this script.

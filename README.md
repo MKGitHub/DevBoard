@@ -1,9 +1,9 @@
 [![MadeInSweden](https://img.shields.io/badge/Made_In-Stockholm_Sweden-blue.svg)](https://en.wikipedia.org/wiki/Stockholm)
 [![Status](https://img.shields.io/badge/Status-Active_and_in_development-blue.svg)](https://github.com/MKGitHub/DevBoard)
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
-[![Carthage](https://img.shields.io/badge/Carthage-1.0.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
-[![SPM](https://img.shields.io/badge/SPM-1.0.0-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![Version](https://img.shields.io/badge/Version-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![Carthage](https://img.shields.io/badge/Carthage-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
+[![SPM](https://img.shields.io/badge/SPM-1.0.1-blue.svg)](https://github.com/MKGitHub/DevBoard)
 [![CocoaPods](https://img.shields.io/badge/CocoaPods-🤬-blue.svg)](https://github.com/MKGitHub/DevBoard)
 
 [![Languages](https://img.shields.io/badge/Languages-Swift_PHP_HTML_JS_CSS-blue.svg)](https://github.com/MKGitHub/DevBoard)
@@ -48,10 +48,14 @@ Please see the provided `DevBoardExampleApp` for Swift.
 ###### Swift Story
 ```swift
 // init
-let devBoard = DevBoard(host:"http://localhost:8888", autoUpdateTimeInterval:2)
+let devBoard = DevBoard(host:"http://localhost:8888",
+                        autoUpdateTimeInterval:2,
+                        ignoreAllOperations:false)
 
 // set a parameter
-devBoard.setParameter(atIndex:0, key:"Button Tapped", value:"Green Button", color:"#00FF00", actions:[])
+devBoard.setParameter(atIndex:0, key:"Button Tapped",
+                      value:"Green Button", color:"#00FF00",
+                      actions:[])
 
 // manually send update to server
 devBoard.sendUpdate()
@@ -62,7 +66,9 @@ devBoard.sendUpdate()
 var devBoardSubscriber = devBoard.sink
 {
     devBoard in
-    devBoard.setParameter(atIndex:1, key:"Date/Time", value:Date().description, color:"cyan", actions:[])
+    devBoard.setParameter(atIndex:1, key:"Date/Time", 
+                          value:Date().description, color:"cyan",
+                          actions:[])
 }
 
 ```
@@ -115,7 +121,7 @@ Notes
 ------
 https://github.com/MKGitHub/DevBoard
 
-Copyright 2019 Mohsan Khan
+Copyright 2019-2020 Mohsan Khan
 
 Licensed under the Apache License, Version 2.0
 

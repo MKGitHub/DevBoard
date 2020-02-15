@@ -1,7 +1,7 @@
 //
-//  DevBoard 1.0.0
+//  DevBoard 1.0.1
 //
-//  Copyright © 2019 Mohsan Khan. All rights reserved.
+//  Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 //
 
 
@@ -32,7 +32,10 @@ final class DevBoard
 
     private let mJSONEncoder = JSONEncoder()
 
+    private var mIgnoreAllOperations = false
     private var mHost:String!
+    private var mParameters = [String:DevBoardParameter]()
+
     private var mDataTaskPublisherCancellable:AnyCancellable?
     private var mAutoUpdateTimerCancellable:AnyCancellable?
     private var mDispatchQueue = DispatchQueue(label:"DevBoard DispatchQueue",
@@ -40,7 +43,6 @@ final class DevBoard
                                                attributes:[.concurrent],
                                                autoreleaseFrequency:DispatchQueue.AutoreleaseFrequency.inherit,
                                                target:nil)
-    private var mParameters = [String:DevBoardParameter]()
 
 
     // MARK: - Life Cycle
@@ -50,9 +52,16 @@ final class DevBoard
         - Parameters:
             - host: Host server URL e.g. http://localhost:8888. Also add a "localhost" key to your `NSAppTransportSecurity` key in your Info.plist.
             - autoUpdateTimeInterval: 0 = no auto update, else in seconds to automatically send an update. This requires that you subscribe to this instance of `DevBoard`.
+            - ignoreAllOperations: Set this for debug / release mode of your app. Debug=allow, Release=ignore.
     */
-    init(host:String, autoUpdateTimeInterval:Int)
+    init(host:String, autoUpdateTimeInterval:Int, ignoreAllOperations:Bool)
     {
+        if ignoreAllOperations
+        {
+            mIgnoreAllOperations = ignoreAllOperations
+            return
+        }
+
         mHost = host
 
         // setup encoder
@@ -85,6 +94,11 @@ final class DevBoard
     */
     func setParameter(atIndex index:UInt, key:String, value:String, color:String="", actions:[Int]=[])
     {
+        if mIgnoreAllOperations
+        {
+            return
+        }
+
         let parameter = DevBoardParameter(key:key, value:value, color:color, actions:actions)
         let indexString = String(index)
 
@@ -103,6 +117,11 @@ final class DevBoard
     */
     func sendUpdate()
     {
+        if mIgnoreAllOperations
+        {
+            return
+        }
+
         // return to app immediately
         DispatchQueue.global().async
         {
@@ -118,6 +137,11 @@ final class DevBoard
 
     private func setupAutoUpdateWithTimeInterval(_ timeInterval:Int)
     {
+        if mIgnoreAllOperations
+        {
+            return
+        }
+
         mAutoUpdateTimerCancellable = Timer.publish(every:TimeInterval(timeInterval), on:.main, in:.default)
         .autoconnect()
         .sink
@@ -134,6 +158,11 @@ final class DevBoard
 
     private func sendUpdateToServer()
     {
+        if mIgnoreAllOperations
+        {
+            return
+        }
+        
         // encode parameters to data
         guard
             let jsonData = try? mJSONEncoder.encode(self),

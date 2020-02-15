@@ -1,7 +1,7 @@
 <?php
     /*
-        Dev Board 1.0.0
-        Copyright © 2019 Mohsan Khan. All rights reserved.
+        Dev Board 1.0.1
+        Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 
         • This is the viewer page.
         • It displays the received info by reading it from the log file.

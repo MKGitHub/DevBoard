@@ -1,5 +1,5 @@
 //
-//  Copyright © 2019 Mohsan Khan. All rights reserved.
+//  Copyright © 2019-2020 Mohsan Khan. All rights reserved.
 //
 
 import UIKit
@@ -8,7 +8,7 @@ import Combine
 
 final class ExampleViewController:UIViewController
 {
-    private let devBoard = DevBoard(host:"http://localhost:8888", autoUpdateTimeInterval:2)
+    private let devBoard = DevBoard(host:"http://localhost:8888", autoUpdateTimeInterval:2, ignoreAllOperations:true)
 
     private var devBoardSubscriber1:AnyCancellable!
     private var devBoardSubscriber2:AnyCancellable!
